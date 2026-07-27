@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple CSS Image Gallery</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    color: solid black;         
+    text-align: center;
+    background-color: #abf228;
+}
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img{
+    width: 260px;
+    height: 269px;
+    margin: 10px;
+    border: 3px solid #abf228;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+.gallery img:hover{
+    transform: scale(1.1);
+    border-color: black;
+}
+
+h1{
+    color:#535152;
+    font-size: 30px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+h1:hover{
+    color: black;
+    transform: scale(1.1);
+                 0 0 20px black,
+                 0 0 30px black;
+}
+</style>
+</head>
+
+<body>
+
+<h1><b>BEN 10</b></h1>
+
+<div class="gallery">
+    <img src="D:\607\4/heatbast.jpg" alt="Image 1">
+    <img src="D:\607\4/fourarms.jpg" alt="Image 2">
+    <img src="D:\607\4/diamondhead.jpg" alt="Image 3">
+    <img src="D:\607\4/ghostfreak.jpg" alt="Image 4">
+</div>
+
+</body>
+</html>

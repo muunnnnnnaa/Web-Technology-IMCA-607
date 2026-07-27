@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>index</title>
+</head>
+<frameset>
+	<frameset src="header.html">
+	<frameset src="intructions.html">
+	<frameset src="syllabus.html">
+	<frameset src="student.html">
+	<frameset src="footer.html">
+</frameset>
+</html>
