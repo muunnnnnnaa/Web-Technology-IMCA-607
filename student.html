@@ -1,0 +1,135 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Attendance Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2563eb;
+            color: white;
+            padding: 30px;
+        }
+
+        main {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .box {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .box h2 {
+            color: #2563eb;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #result {
+            color: #2563eb;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Daily Attendance Calculator</h1>
+        <p>Calculate your attendance percentage</p>
+    </header>
+
+    <main>
+        <section class="box">
+            <h2>Check Your Attendance</h2>
+
+            <label>Total Classes:</label><br>
+            <input type="number" id="total" min="1"><br><br>
+
+            <label>Classes Attended:</label><br>
+            <input type="number" id="attended" min="0"><br><br>
+
+            <button onclick="calculate()">Calculate</button>
+
+            <h3 id="result"></h3>
+        </section>
+    </main>
+
+    <footer>
+        <p>Daily Attendance Calculator</p>
+    </footer>
+
+    <script>
+        function calculate() {
+            var total = Number(document.getElementById("total").value);
+            var attended = Number(document.getElementById("attended").value);
+
+            if (document.getElementById("total").value == "" ||
+                document.getElementById("attended").value == "" ||
+                total <= 0 || attended < 0 || attended > total) {
+
+                document.getElementById("result").innerHTML =
+                    "Enter valid class numbers";
+                return;
+            }
+
+            var percentage = (attended / total) * 100;
+
+            var message = "Attendance: " + percentage.toFixed(2) + "%<br>";
+
+            if (percentage >= 75) {
+                message += "Attendance is sufficient.";
+            } else {
+                var needed = Math.ceil(
+                    (75 * total - 100 * attended) / 25
+                );
+
+                message += "Attendance is below 75%.<br>";
+                message += "Attend the next " + needed +
+                    " classes continuously to reach 75%.";
+            }
+
+            document.getElementById("result").innerHTML = message;
+        }
+    </script>
+
+</body>
+</html>
+```
